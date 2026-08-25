@@ -7,6 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        // ── Lab monochrome (dark-gray computational lab) ──
+        lab: {
+          void: '#08080a',
+          ink: '#0a0a0b',
+          carbon: '#0f0f11',
+          slate: '#141417',
+          panel: '#17171b',
+          ash: '#26262b',
+          steel: '#3a3a42',
+          fog: '#5c5c66',
+          mist: '#8a8a94',
+          chalk: '#c4c4cc',
+          glow: '#e8e8ee',
+        },
+
         // Primary Brand
         cosmic: {
           lavender: '#B5A7D6',
@@ -90,9 +105,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Poppins', 'sans-serif'],
-        heading: ['Outfit', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['"Space Mono"', 'monospace'],
+        heading: ['"IBM Plex Mono"', 'monospace'],
+        body: ['"IBM Plex Mono"', 'monospace'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
       },
       fontSize: {
         'hero': '72px',

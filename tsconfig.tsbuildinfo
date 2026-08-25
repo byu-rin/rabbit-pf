@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/navigation.tsx","./src/components/index.ts","./src/experiments/dot-bunny/dotbunny.tsx","./src/experiments/dot-bunny/bunnydata.ts","./src/experiments/dot-bunny/main.tsx","./src/lab/generativeworld.tsx","./src/lab/overlay.tsx","./src/lab/terminal.tsx","./src/lab/geometry.ts"],"version":"5.9.3"}

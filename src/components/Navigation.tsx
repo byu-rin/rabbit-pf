@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: "project", href: "/projects", target: "_blank" },
+  { label: "structure", href: "#structure" },
+  { label: "objects", href: "#objects" },
+  { label: "interface", href: "#interface" },
 ];
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-milky-white/95 backdrop-blur-sm border-b border-silver-mist shadow-subtle">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-lab-ink/70 backdrop-blur-md border-b border-lab-ash">
       <div className="container-content">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#home" className="text-2xl font-display font-bold text-cosmic-lavender">
-            ◎
+          {/* Logo — a generative glyph */}
+          <a href="#top" className="flex items-center gap-3 group">
+            <span className="text-lg text-lab-glow font-display font-bold tracking-tight transition-colors group-hover:text-lab-chalk">
+              ⬡
+            </span>
+            <span className="hidden sm:inline lab-label text-lab-mist group-hover:text-lab-chalk">
+              doyeon.lab
+            </span>
           </a>
 
           {/* Desktop Menu */}
@@ -25,20 +30,25 @@ export const Navigation: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-body font-heading font-medium text-deep-space hover:text-cosmic-lavender transition-colors"
+                target={item.target}
+                className="lab-label text-lab-fog hover:text-lab-glow transition-colors"
               >
                 {item.label}
               </a>
             ))}
+            <span className="lab-readout hidden lg:inline text-lab-steel">
+              // v4.0.1
+            </span>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-md hover:bg-twilight-gray rounded-sm transition-colors"
+            aria-label="menu"
+            className="md:hidden p-md text-lab-mist hover:text-lab-glow transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg
-              className="w-6 h-6 text-deep-space"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -46,7 +56,7 @@ export const Navigation: React.FC = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={1.5}
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
@@ -55,12 +65,13 @@ export const Navigation: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-lg border-t border-silver-mist">
+          <div className="md:hidden pb-lg border-t border-lab-ash">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block py-md text-body text-deep-space hover:text-cosmic-lavender transition-colors"
+                target={item.target}
+                className="block py-md lab-label text-lab-fog hover:text-lab-glow transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

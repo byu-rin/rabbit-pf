@@ -1,23 +1,22 @@
-import {
-  Navigation,
-  Hero,
-  Projects,
-  About,
-  Skills,
-  Contact,
-  Footer,
-} from './components';
+import { Navigation } from './components';
+import { GenerativeWorld } from './lab/GenerativeWorld';
+import { Overlay } from './lab/Overlay';
+import { Terminal } from './lab/Terminal';
 
 function App() {
   return (
-    <div className="w-full">
+    <div id="top" className="relative w-full bg-lab-void">
+      {/* fixed 4D dot-space behind everything */}
+      <GenerativeWorld />
+
+      {/* preserved header layout, re-skinned for the lab */}
       <Navigation />
-      <Hero />
-      <Projects />
-      <About />
-      <Skills />
-      <Contact />
-      <Footer />
+
+      {/* scrollable narrative that drives the camera */}
+      <Overlay />
+
+      {/* the CLI as a physical object in the world */}
+      <Terminal />
     </div>
   );
 }
