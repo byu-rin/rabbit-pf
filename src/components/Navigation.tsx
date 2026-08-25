@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const navItems = [
   { label: "project", href: "#project" },
-  { label: "structure", href: "#structure" },
-  { label: "objects", href: "#objects" },
-  { label: "interface", href: "#interface" },
+  { label: "github", href: "https://github.com/byu-rin", target: "_blank" },
+  { label: "download", href: "#download" },
+  { label: "contact", href: "#contact" },
 ];
 
 export const Navigation: React.FC = () => {
@@ -30,6 +30,7 @@ export const Navigation: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
+                target={item.target}
                 className="lab-label text-lab-fog hover:text-lab-glow transition-colors"
               >
                 {item.label}
@@ -69,6 +70,7 @@ export const Navigation: React.FC = () => {
               <a
                 key={item.label}
                 href={item.href}
+                target={item.target}
                 className="block py-md lab-label text-lab-fog hover:text-lab-glow transition-colors"
                 onClick={() => setIsOpen(false)}
               >
