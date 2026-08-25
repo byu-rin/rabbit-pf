@@ -6,6 +6,11 @@ import React, { useEffect, useState } from "react";
    pipeline as sparse, lab-grade captions over the geometry.
    ============================================================ */
 
+interface Project {
+  name: string;
+  url: string;
+}
+
 interface Section {
   index: string;
   id: string;
@@ -13,6 +18,7 @@ interface Section {
   title: string;
   body: string;
   align: "left" | "right";
+  projects?: Project[];
 }
 
 const SECTIONS: Section[] = [
@@ -31,6 +37,12 @@ const SECTIONS: Section[] = [
     title: "sampled\nsurfaces",
     body: "parametric surfaces are sampled into clouds of dots. nothing here is an image — everything is coordinates.",
     align: "left",
+    projects: [
+      {
+        name: "ReviewTicket Fullstack",
+        url: "https://github.com/ReviewTicketFullstack/ReviewTicketFullstack",
+      },
+    ],
   },
   {
     index: "02",
@@ -39,6 +51,12 @@ const SECTIONS: Section[] = [
     title: "every dot\ncarries state",
     body: "position · seed · a fourth coordinate (w). the field drifts through 4D and projects back onto your screen.",
     align: "right",
+    projects: [
+      {
+        name: "Smart Housing Filter",
+        url: "https://github.com/byu-rin/smart-housing-filter",
+      },
+    ],
   },
   {
     index: "03",
@@ -47,6 +65,12 @@ const SECTIONS: Section[] = [
     title: "binary\nlattice",
     body: "dots are wired into a recursive binary tree — the spine along which the camera descends.",
     align: "left",
+    projects: [
+      {
+        name: "Art Movement Detail",
+        url: "https://github.com/byu-rin/art_movement_detail.git",
+      },
+    ],
   },
   {
     index: "04",
@@ -55,6 +79,12 @@ const SECTIONS: Section[] = [
     title: "bottle ·\nrabbit · tree",
     body: "as the camera nears each depth, scattered dots converge and assemble into form. keep moving and they breathe.",
     align: "right",
+    projects: [
+      {
+        name: "Menu Scraping Tool",
+        url: "https://github.com/byu-rin/menu_scraping.git",
+      },
+    ],
   },
   {
     index: "05",
@@ -140,6 +170,21 @@ export const Overlay: React.FC = () => {
               <div className="mt-10 flex items-center gap-3 lab-readout">
                 <span className="w-1.5 h-1.5 rounded-full bg-lab-glow animate-pulse" />
                 React · TypeScript · Vite
+              </div>
+            )}
+            {s.projects && s.projects.length > 0 && (
+              <div className="mt-8 space-y-2">
+                {s.projects.map((proj) => (
+                  <a
+                    key={proj.url}
+                    href={proj.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-lab-glow hover:text-lab-chalk transition-colors lab-label underline decoration-lab-glow decoration-1 underline-offset-2"
+                  >
+                    → {proj.name}
+                  </a>
+                ))}
               </div>
             )}
           </div>
